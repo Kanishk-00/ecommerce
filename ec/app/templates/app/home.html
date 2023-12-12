@@ -1,0 +1,68 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}
+Home  
+{% endblock title %}
+
+{% block banner-slider %}
+<div id="carouselExample" class="carousel slide">
+    <!-- Carousel items go here -->
+</div>
+{% endblock banner-slider %}
+
+{% block information %}
+<!-- Additional information block goes here -->
+{% endblock information %}
+
+<div class="container">
+    <div class="row bg-success text-center p-5 text-white border-bottom shadow">
+        <h1>Products</h1>
+        <small class="fs-5"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam maiores sint laborum, totam sequi accusantium eaque assumenda perspiciatis officia nobis laboriosam. Nisi molestias sed at tenetur debitis optio illum voluptatum consectetur eligendi!</small>
+    </div>
+</div>
+
+{% block main-content %}
+<div class="container">
+    <h2 class="text-center">Dairy Products</h2>
+    <br /><br />
+
+    <div class="row container">
+        <!-- Ghee -->
+        <div class="col-md-4 col-sm-4 mi-go wow fadeInUp">
+            <div class="goodnesssec buttermilk smbg">
+                <a href="#">
+                    <div class="goodnessseccont text-center">
+                        <img src="{% static 'app/images/buffalo-ghee.png' %}" class="img-responsive center-block" alt=""/>
+                        <p class="mlkpro">Ghee</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Curd -->
+        <div class="col-md-4 col-sm-4 mi-go wow fadeInUp">
+            <div class="goodnesssec buttermilk curdbgpro">
+                <a href="#">
+                    <div class="goodnessseccont text-center">
+                        <img src="{% static 'app/images/curd-total.png' %}" class="img-responsive center-block" alt=""/>
+                        <p class="mlkpro">Curd</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Kulfi -->
+        <div class="col-md-4 col-sm-4 mi-go wow fadeInUp">
+            <div class="goodnesssec buttermilk buttermilk">
+                <a href="#">
+                    <div class="goodnessseccont text-center">
+                        <img src="{% static 'app/images/kulfi.png' %}" class="img-responsive center-block" alt=""/>
+                        <p class="mlkpro">Kulfi</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main-content %}
