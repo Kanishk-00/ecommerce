@@ -5,7 +5,9 @@ from django.shortcuts import redirect
 from django.db.models import Count
 from . forms import CustomerRegistrationForm , CustomerProfileForm
 from django.contrib import messages
-from .models import Customer
+from .models import Customer, Cart
+from django.http import HttpResponseBadRequest
+
 
 # Create your views here.
 def home(req):
@@ -105,3 +107,21 @@ class updateAddress(View):
         return redirect("address")  
     
     
+
+def add_to_cart(request):
+    user = request.user
+    product_id = request.GET.get('prod_id')
+    try:
+        product_id = int(product_id)
+    except (ValueError, TypeError):
+        return HttpResponseBadRequest("Invalid product ID")
+
+    product = Product.objects.get(id=product_id)
+    Cart(user=user, product=product).save()
+    return redirect("/cart")
+
+def show_cart(request):
+    user = request.user
+    cart = Cart.objects.filter(user = user)
+    return render(request, "app/addtocart.html", locals())
+
