@@ -27,6 +27,11 @@ urlpatterns = [
     path('paymentdone/', views.payment_done, name = 'paymentdone'), 
     path('orders/', views.orders, name = 'orders'), 
 
+    path('pluswishlist/', views.plus_wishlist), 
+    path('minuswishlist/', views.minus_wishlist), 
+    path('search/', views.search, name = 'search'), 
+
+
     path('password-reset/', auth_view.PasswordResetView.as_view(template_name = 'app/password_reset.html', form_class = MyPasswordResetForm), name = 'password_reset'), 
     path('password-reset/done/', auth_view.PasswordResetDoneView.as_view(template_name = 'app/password_reset_done.html'), name = 'password_reset_done'), 
     path('password-reset-confirm/<uidb64>/<token>', auth_view.PasswordResetConfirmView.as_view(template_name = 'app/password_reset_confirm.html', form_class = MySetPasswordForm), name = 'password_reset_confirm'), 
