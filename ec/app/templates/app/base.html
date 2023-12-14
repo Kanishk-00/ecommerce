@@ -162,7 +162,14 @@
     {% block information %} {% endblock information %}
     {% block main-content %} 
     {% endblock main-content %}
+    {% block payment-gateway %} {% endblock payment-gateway %}
+
 
     <footer class="container-fluid bg-success fixed-bottom text-center p-2 mt-5">Copyright: 2023 || Developed by: Kanishk Chugh</footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src = "{% static '/app/js/owl.carousel.min.js' %}"> </script>
+    <script src = "{% static '/app/js/all.min.js' %}"> </script>
+    <script src = "{% static '/app/js/myscript.js' %}"> </script>
   </body>
 </html>

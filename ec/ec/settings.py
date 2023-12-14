@@ -126,3 +126,10 @@ LOGIN_REDIRECT_URL = '/profile/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+
+
+# for razorpay integration
+
+RAZOR_KEY_ID = "rzp_test_z1msihlWIF7bXF"
+RAZOR_KEY_SECRET = "57lk6pLzB9AP9ZvkNeKXgAhq"
