@@ -228,5 +228,5 @@ class checkout(View):
         return render(request, 'app/checkout.html', locals()) 
     
 
-# new
+# new2
     
