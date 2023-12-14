@@ -62,6 +62,8 @@
 
 
 {% block payment-gateway %}
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
 <script>
     var options = {
         "key" : "rzp_test_z1msihlWIF7bXF", 
@@ -73,8 +75,8 @@
         "handler" : function (response){
             console.log("success");
             var form = document.getElementById("myform");
-            window.location.href = 'http://localhost:8000/paymentdone?order_id=${response.razorpay_order_id}&payment_id=${response.razorpay_payment_id}&cust_id=${form.elements["custid"].value}'
-        }, 
+            window.location.href = `http://localhost:8000/paymentdone?order_id=${response.razorpay_order_id}&payment_id=${response.razorpay_payment_id}&cust_id=${form.elements["custid"].value}`;
+                    }, 
         "theme" : {
             "color" : "#3300cc"
         }
@@ -86,8 +88,11 @@
     
     document.getElementById('rzp-button1').onclick = function(e){
         console.log("button click");
+        console.log("idhar to aagaya")
         rzp1.open();
+        console.log("idhar aaya kya2?")
         e.preventDefault();
+        console.log("idhar ajaa")
     }
 </script>
 

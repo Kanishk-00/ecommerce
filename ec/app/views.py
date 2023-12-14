@@ -1,11 +1,10 @@
 from django.shortcuts import render
 from django.views import View
-from . models import Product
+from . models import Product, OrderPlaced, Customer, Cart, Payment
 from django.shortcuts import redirect
 from django.db.models import Count
 from . forms import CustomerRegistrationForm , CustomerProfileForm
 from django.contrib import messages
-from .models import Customer, Cart, Payment
 from django.http import HttpResponseBadRequest
 from django.http import JsonResponse
 from django.db.models import Q
@@ -228,5 +227,20 @@ class checkout(View):
         return render(request, 'app/checkout.html', locals()) 
     
 
-# new2
+
     
+def payment_done(request):
+    order_id = request.GET.get('order_id')
+    payment_id = request.GET.get('payment_id')
+    cust_id = request.GET.get('cust_id')
+    user = request.user
+    customer = Customer.objects.get(id = cust_id)
+    payment = Payment.objects.get(razorpay_order_id = order_id)
+    payment.paid = True
+    payment.razorpay_payment_id = payment_id
+    payment.save()
+    cart = Cart.objects.filter(user = user)
+    for c in cart:
+        OrderPlaced(user=user, customer = customer, product = c.product, quantity = c.quantity, payment = payment).save()
+        c.delete()
+    return redirect("orders")

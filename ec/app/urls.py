@@ -24,6 +24,8 @@ urlpatterns = [
     path('pluscart/', views.plus_cart), 
     path('minuscart/', views.minus_cart), 
     path('removecart/', views.remove_cart), 
+    path('paymentdone/', views.payment_done, name = 'paymentdone'), 
+    path('orders/', views.home, name = 'orders'), 
 
     path('password-reset/', auth_view.PasswordResetView.as_view(template_name = 'app/password_reset.html', form_class = MyPasswordResetForm), name = 'password_reset'), 
     path('password-reset/done/', auth_view.PasswordResetDoneView.as_view(template_name = 'app/password_reset_done.html'), name = 'password_reset_done'), 

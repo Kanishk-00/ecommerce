@@ -23,6 +23,7 @@
     />
     <link rel="stylesheet" href="{% static '/app/css/all.min.css' %} " />
     <link rel="stylesheet" href="{% static '/app/css/style.css' %} " />
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   </head>
   <body>
     <script
@@ -139,7 +140,7 @@
         </li>
 
           <li class="nav-item mx-2">
-            <a href="#" class="nav-link text-white"> Cart 4</a>
+            <a href="{% url 'showcart' %}" class="nav-link text-white"> Cart 4</a>
           </li>
           <li class="nav-item mx-2">
             <a href="#" class="nav-link text-white"> Wishlist 4</a>
