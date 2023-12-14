@@ -132,7 +132,7 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="profileDropdown">
                     <li><a class="dropdown-item" href="{% url 'profile' %}"> Profile </a></li>
-                    <li><a class="dropdown-item" href="#"> Orders </a></li>
+                    <li><a class="dropdown-item" href="{% url 'orders' %}"> Orders </a></li>
                     <li><a class="dropdown-item" href="{% url 'passwordchange' %}"> Change Password </a></li>
                     <li><button type="submit" class="dropdown-item"> Logout </button></li>
                 </ul>
@@ -140,7 +140,7 @@
         </li>
 
           <li class="nav-item mx-2">
-            <a href="{% url 'showcart' %}" class="nav-link text-white"> Cart 4</a>
+            <a href="{% url 'showcart' %}" class="nav-link text-white"> <span class="badge bd-danger"> {% if totalitem > 0 %} {{ totalitem }} {% endif %} </span>Cart</a>
           </li>
           <li class="nav-item mx-2">
             <a href="#" class="nav-link text-white"> Wishlist 4</a>
