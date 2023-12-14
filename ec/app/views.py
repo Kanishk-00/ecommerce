@@ -227,3 +227,6 @@ class checkout(View):
             payment.save()
         return render(request, 'app/checkout.html', locals()) 
     
+
+# new
+    
